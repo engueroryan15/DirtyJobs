@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 
+#import "UIManager.h"
+
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +20,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    
+    [self.window setRootViewController:[[UIManager sharedItems] registrationViewCon]];
+    
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
